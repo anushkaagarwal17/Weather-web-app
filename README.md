@@ -25,3 +25,9 @@ A responsive and user-friendly Weather Web Application built using **HTML, CSS, 
    cd weather-web-app
 3. Open index.html in your browser
    OR use Live Server in VS Code. 
+
+# API Configuration
+Get a free API key from:
+👉 https://www.visualcrossing.com/weather-api
+Replace the API key in script.js:
+   const API_KEY = "YOUR_API_KEY_HERE";
