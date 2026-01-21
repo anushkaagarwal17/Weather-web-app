@@ -29,3 +29,5 @@ A responsive and user-friendly Weather Web Application built using **HTML, CSS, 
 # API Configuration
 - Get a free API key from:👉 https://www.visualcrossing.com/weather-api
 - Replace the API key in script.js: const API_KEY = "YOUR_API_KEY_HERE";
+
+# Project URL: https://roadmap.sh/projects/weather-app
