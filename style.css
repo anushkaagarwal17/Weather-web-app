@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh; /* Fixed height to screen size */
+    overflow: hidden; /* Prevents whole page scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #6a2c91 0%, #020618 100%);
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.app {
+    width: 100%;
+    max-width: 480px;
+    /* This limits the app height to 95% of the screen */
+    max-height: 95vh; 
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    color: #ffffff;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 30px rgba(2,6,24,0.6);
+    backdrop-filter: blur(6px);
+    
+    /* Makes the internal content handle layout */
+    display: flex; 
+    flex-direction: column;
+}
+
+.app h1 {
+    margin: 0 0 15px 0; /* Reduced margin */
+    font-size: 22px;
+    letter-spacing: 0.8px;
+    color: #fffbfe;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    margin-bottom: 10px; /* Reduced margin */
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.12);
+    background: rgba(255,255,255,0.95);
+    color: #111;
+    font-size: 14px;
+    outline: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 8px 16px; /* Smaller buttons */
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    background: #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 181, 217, 0.18);
+}
+
+/* --- THE BIG CHANGE: GRID LAYOUT --- */
+#weatherInfo {
+    margin-top: 10px;
+    color: #f5f7fb;
+    /* This creates a 2x2 grid for stats */
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px; 
+}
+
+.weather-bar {
+    display: flex;
+    flex-direction: column; /* Stack label and value inside the small box */
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 10px;
+    margin: 0; /* Removed large margins */
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+}
+
+.weather-bar span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #eee;
+    margin-bottom: 5px;
+}
+
+.weather-bar strong {
+    font-size: 16px;
+    color: #fff;
+}
+
+.city {
+  /* This targets the coordinates text */
+  margin: 10px 0;
+  font-size: 18px; 
+  /* If coordinates are not inside #weatherInfo, they might need this */
+  grid-column: span 2; 
+}
+
+/* --- FORECAST SECTION --- */
+/* Title for next 24 hours */
+.app > div:last-of-type { 
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#forecast {
+  /* This ensures the list takes remaining space but scrolls if needed */
+  flex-grow: 1; 
+  overflow-y: auto; 
+  margin-top: 5px;
+  padding-right: 5px;
+  min-height: 0; /* Vital for flex scrolling */
+}
+
+.hour-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  background: rgba(255,255,255,0.08);
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Custom Scrollbar to look clean */
+#forecast::-webkit-scrollbar {
+  width: 6px;
+}
+#forecast::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 10px;
+}
